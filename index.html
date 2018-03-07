@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+	<title>Nimiro</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="./webapp/normalize.css" rel="stylesheet" />
+	<link href="./webapp/main.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="./webapp/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="./webapp/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<div id="logo">Nimiro</div>
+<center>
+	<br/>
+	<i>A shitty Phonetic Number System mnemonics generator</i>
+	<br/>
+</center>
+
+<noscript>
+JavaScript is needed for this app to work!
+</noscript>
+
+<div id="input">
+	<form onsubmit="start(); return false;">
+		Number <input id="number" type="number" autofocus required value="92940" minlength="1" placeholder="..." />
+		<br/>
+		Topics* <input id="topics" type="text" placeholder="..." value="person, free_time" />
+		<br/>
+		MaxCandidates <input id="max-candidates" type="number" value="10" />
+		<br/>
+		MaxTime (secs) <input id="max-time" type="number" value="3" />
+		<br/>
+		<input id="go" type="submit" value="Go!" />
+	</form>
+</div>
+
+<div id="loading" hidden>
+	LOADING...<br/>
+	<img src="./webapp/loading.gif" alt="loading" style="width: 100%;" />
+</div>
+
+<div id="output">
+	<h2>Output</h2>
+	<div id="candidates">
+		<div>gay niggers</div>
+		<div>go niggers</div>
+	</div>
+</div>
+
+<div id="info">
+	<div id="code">
+		<b>CODE</b>
+		0 S (or Z) as in Cypher (or Zero)
+		1 L looks like "l"
+		2 N as in "nee" (Japanese) or "ithnayn" (Arabic) 
+		3 M looks like sideways "m"
+		4 R as in fouR
+		5 V as in fiVe and the Roman numeral V
+		6 B (or D) looks like "b", "d"
+		7 T (or F) looks like "t", "f"
+		8 X "sh" and "ch" sounds
+		9 G looks like "g"
+	</div>
+	<br/><br/>
+	DISCLAIMER: I don't own the "Lemons Can Fly" gif
+</div>
+
+<script src="./webapp/main.js"></script>
+
+</body>
+</html>

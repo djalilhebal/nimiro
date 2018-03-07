@@ -1,0 +1,83 @@
+* {padding:0;margin:0;font-size: 22px;}
+
+body {
+	background: seagreen;
+	color: white;
+}
+
+#loading {
+	font-size: 33px;
+	font-weight: bold;
+	font-family: cursive;
+	text-align: center;
+	padding: 5px;
+	background: white;
+	color: black;
+}
+
+#logo, #input, #output, #info {
+	text-align: center;
+	padding: 10px;
+}
+
+#logo {
+	background: mediumseagreen;
+	font-size: 50px;
+}
+
+h2 {
+	padding-bottom: 10px;
+	font-size: 35px;
+}
+
+#number, #topics, #max-time, #max-candidates {
+	text-align: center;
+	border-radius: 10px;
+	width: 100px;
+	padding: 3px;
+	margin: 3px;
+	border: 0px;
+}
+
+#number, #topics {
+	width: 70%;
+}
+
+#go {
+	background: mediumseagreen;
+	color: white;
+	border-radius: 70% 3%;
+	padding: 5px;
+	margin: 5px;
+	border: 0;
+	width: 80px;
+	cursor: pointer;
+	font-size: 30px;
+	font-family: cursive;
+}
+
+#go:hover{
+	background: #46c780;
+}
+
+/* OUTPUT */
+
+#output {
+	text-align: center;
+	border-width: 3px 0px 3px 0px;
+	border-style: dashed;
+	border-color: white;
+}
+
+#candidates > div {
+	background: mediumseagreen;
+	padding: 2px;
+	margin: 2px;
+}
+
+/* INFO */
+
+#code {
+	text-align: left;
+    white-space: pre-line;
+}

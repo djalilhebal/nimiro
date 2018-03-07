@@ -1,0 +1,9 @@
+{
+  "name": "nimiro",
+  "version": "0.0.1",
+  "description": "A Phonetic Number System mnemonics generator",
+  "main": "nimiro.js",
+  "bin": "./cli.js",
+  "author": "Dreamski <dreamski21@gmail.com>",
+  "license": "WTFPL"
+}
