@@ -1,0 +1,5 @@
+# MyMetaphone
+Similar to DoubleMetaphone, with these differences:
+- No vowel (including 'H') is preserved.
+- Voiced/unvoiced consonant pairs are mapped to the different encoding
+- 0 is treated as 'T'

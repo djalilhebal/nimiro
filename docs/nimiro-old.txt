@@ -1,0 +1,4 @@
+collections -> FOREST
+collection -> TREE
+
+- Traverse trees using a word bigram language model

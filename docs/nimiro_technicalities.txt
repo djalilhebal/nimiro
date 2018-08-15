@@ -1,0 +1,15 @@
+# Nimiro::Technicalities
+
++ Offensive programming
+
++ CORE
+  - Lib: Natural? Compromise?
+  - ES6 classes? strict mode?
+
++ SERVER
+  - Frameworks: Axios and Express
+  - Request? Got? Axios?
+  - npm: sqlite (Promise), sqlite3, nedb
+
+
+cordova-plugin-sqlite-2, nodejs-mobile-cordova
