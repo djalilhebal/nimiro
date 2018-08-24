@@ -7,7 +7,7 @@ Generate word trigram and bigram probabilities
   a cappella -> a_cappella
 - Remove `a`
 
-* whitelist = ["i", "he", "we", "you"]
+* whitelist = ["i", "he", "we", "you"] (maybe keep them?)
 
 ## Tokenize
 Given a normalized text. Return an sentences of words

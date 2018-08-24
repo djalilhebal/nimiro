@@ -1,4 +1,6 @@
+# Nimiro 2018-02
+
+- Traverses forests using a word bigram model
+
 collections -> FOREST
 collection -> TREE
-
-- Traverse trees using a word bigram language model
