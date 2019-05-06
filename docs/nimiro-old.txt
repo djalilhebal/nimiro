@@ -1,6 +1,8 @@
-# Nimiro 2018-02
+Nimiro 2018-02
+==============
 
-- Traverses forests using a word bigram model
+This is how Nimiro v2018-02 works:
+It traverses `forest`s using a greedy search algorithm, a rule based scorer, and a word bigram model.
 
 collections -> FOREST
 collection -> TREE
