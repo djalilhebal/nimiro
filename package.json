@@ -2,8 +2,10 @@
   "name": "nimiro",
   "version": "0.0.1",
   "description": "A Phonetic Number System mnemonics generator",
+  "keywords": ["nlg", "nlp"],
+  "homepage": "https://github.com/djalilhebal/nimiro",
+  "author": "Abdeldjalil Hebal <abdeldjalil.hebal@gmail.com> (https://djalil.me)",
+  "license": "CC0",
   "main": "nimiro.js",
-  "bin": "./cli.js",
-  "author": "Dreamski <dreamski21@gmail.com>",
-  "license": "WTFPL"
+  "bin": "./cli.js"
 }
