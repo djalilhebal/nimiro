@@ -1,10 +1,68 @@
-* {padding:0;margin:0;font-size: 22px;}
+* {padding:0;margin:0;font-size: 20px;}
 
 body {
-	background: seagreen;
+	background: black;
 	color: white;
 }
 
+a {
+	color: white;
+}
+
+/* HEADER */
+header {
+	text-align: center;
+	padding: 15px;
+}
+
+#logo {
+	font-size: 50px;
+	font-family: cursive;
+}
+
+/* INPUT */
+
+#input {
+	text-align: center;
+	padding: 10px;
+}
+
+h2 {
+	/* margin-bottom: 5px; */
+	font-size: 35px;
+}
+
+#number, #topics, #max-time, #max-candidates {
+	text-align: center;
+	border-radius: 10px;
+	width: 90px;
+	padding: 3px;
+	margin: 3px;
+	border: 0px;
+}
+
+#number, #topics {
+	width: 66%;
+}
+
+#go {
+	background: gray;
+	color: white;
+	border-radius: 70% 3%;
+	padding: 5px;
+	margin: 5px;
+	border: 0;
+	width: 80px;
+	cursor: pointer;
+	font-size: 33px;
+	font-family: cursive;
+}
+
+#go:hover{
+	background: darkgray;
+}
+
+/* LOADING */
 #loading {
 	font-size: 33px;
 	font-weight: bold;
@@ -15,69 +73,36 @@ body {
 	color: black;
 }
 
-#logo, #input, #output, #info {
-	text-align: center;
-	padding: 10px;
-}
-
-#logo {
-	background: mediumseagreen;
-	font-size: 50px;
-}
-
-h2 {
-	padding-bottom: 10px;
-	font-size: 35px;
-}
-
-#number, #topics, #max-time, #max-candidates {
-	text-align: center;
-	border-radius: 10px;
-	width: 100px;
-	padding: 3px;
-	margin: 3px;
-	border: 0px;
-}
-
-#number, #topics {
-	width: 70%;
-}
-
-#go {
-	background: mediumseagreen;
-	color: white;
-	border-radius: 70% 3%;
-	padding: 5px;
-	margin: 5px;
-	border: 0;
-	width: 80px;
-	cursor: pointer;
-	font-size: 30px;
-	font-family: cursive;
-}
-
-#go:hover{
-	background: #46c780;
+#loading > img {
+	width: 50%;
 }
 
 /* OUTPUT */
-
 #output {
 	text-align: center;
 	border-width: 3px 0px 3px 0px;
 	border-style: dashed;
 	border-color: white;
+	padding: 15px;
 }
 
 #candidates > div {
-	background: mediumseagreen;
+	background: gray;
 	padding: 2px;
 	margin: 2px;
 }
 
 /* INFO */
-
-#code {
+#info {
 	text-align: left;
-    white-space: pre-line;
+	white-space: pre-line;
+	padding: 0px 0px 0px 10px;
+}
+
+/* FOOTER */
+footer, footer > * {
+	white-space: pre-line;
+	text-align: center;
+	font-size: 17px;
+	margin-bottom: 7px;
 }

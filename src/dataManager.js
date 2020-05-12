@@ -1,41 +1,67 @@
-// data manager
-
-const data = {};
-let workingData = {};
-if (typeof data.wordlist === 'object') {
-	workingData.canUseCartesien = true;
-	workingData.wordlist = data.wordlist;
+// DATA MANAGER
+const wordify = require('./utils').wordify;
+/*
+content = {
+	name: "tags"
+	updated: "yyyymmdd"
+	content: {...}
 }
+*/
 
-if (typeof data.pronun === 'object') { // the same with PoS
-	workingData.pronun = data.pronun;
-} else {
-	if (typeof data.tempPronun !== 'object') {
-		// generate tempPronun using myMetaphone
+const actualData = {};
+
+const data = { // working data
+	canUseCartesien: false,
+	canUseLanguageModel: false,
+	canUseDomains: false,
+	wordlist: [],
+	taglist: [],
+	tagsMap: {},
+	domains: {},
+	pronun: {},
+	modelA: {},
+};
+
+function link(){
+	if (typeof actualData.wordlist === 'object') {
+		data.wordlist = actualData.wordlist;
+		data.canUseCartesien = true;
 	}
-	workingData.pronun = data.tempPronun;
+
+	if (typeof actualData.pronun === 'object') { // the same with PoS
+		data.pronun = actualData.pronun;
+	} else {
+		if (typeof actualData.tempPronun !== 'object') {
+			// generate tempPronun using myMetaphone
+		}
+		data.pronun = actualData.tempPronun;
+	}
+
+	if (typeof actualData.modelA === 'object') {
+		data.useModelA = true;
+		data.modelA = actualData.modelA;
+	} else {
+		data.useModelA = false;
+	}
+
+	if (typeof actualData.domains === 'object') {
+		data.canUseDomains = true;
+		data.domains = actualData.domains;
+	} else {
+		data.useDomains = false;
+	}
 }
 
-if (typeof data.modelA === 'object') {
-	workingData.useModelA = true;
-	workingData.modelA = data.modelA;
-} else {
-	workingData.useModelA = false;
-}
-
-if (typeof data.domains === 'object') {
-	workingData.useDomains = true;
-	workingData.domains = data.domains;
-} else {
-	workingData.useDomains = false;
-}
-
-function initData(str_data) {
-	if (typeof str_data !== 'string') return;
+function updateData(str_data) {
+	if (typeof str_data !== 'string') throw new Error('not a str');
 	const parsed = JSON.parse(str_data);
-	if (typeof parsed !== 'object') return;
-	
+	if (typeof parsed !== 'object') throw new Error('not an obj');
 	Object.keys(parsed).forEach( p => {
-		data[p] = parsed[p];
+		actualData[p] = parsed[p];
 	});
+	
+	link();
+	
 }
+
+module.exports = {updateData, data, actualData};

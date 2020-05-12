@@ -9,61 +9,61 @@
 </head>
 <body>
 
-<div id="logo">Nimiro</div>
-<center>
-	<br/>
+<header>
+	<div id="logo">Nimiro</div>
 	<i>A shitty Phonetic Number System mnemonics generator</i>
-	<br/>
-</center>
+</header>
 
 <noscript>
-JavaScript is needed for this app to work!
+	JavaScript is needed for this app to work!
 </noscript>
 
-<div id="input">
-	<form onsubmit="start(); return false;">
-		Number <input id="number" type="number" autofocus required value="92940" minlength="1" placeholder="..." />
-		<br/>
-		Topics* <input id="topics" type="text" placeholder="..." value="person, free_time" />
-		<br/>
-		MaxCandidates <input id="max-candidates" type="number" value="10" />
-		<br/>
-		MaxTime (secs) <input id="max-time" type="number" value="3" />
-		<br/>
-		<input id="go" type="submit" value="Go!" />
-	</form>
-</div>
+<form id="input" hidden onsubmit="start(); return false;">
+	Number <input id="number" type="number" placeholder="..." value="92940" minlength="1" required autofocus />
+	<br/>
+	Topics* <input id="topics" type="text" placeholder="..." value="person, free_time" disabled />
+	<br/>
+	MaxCandidates <input id="max-candidates" type="number" value="10" />
+	<br/>
+	MaxTime (secs) <input id="max-time" type="number" value="3" />
+	<br/>
+	<input id="go" type="submit" value="Go!" />
+</form>
 
-<div id="loading" hidden>
+<div id="loading">
 	LOADING...<br/>
-	<img src="./webapp/loading.gif" alt="loading" style="width: 100%;" />
+	<img src="./webapp/hexagon.png" alt="loading" />
 </div>
 
-<div id="output">
+<div id="output" hidden>
 	<h2>Output</h2>
 	<div id="candidates">
-		<div>go in grass</div>
-		<div>agony grace</div>
+		<div>go on grass</div>
+		<div>go niggers</div>
+		<div>gay niggers</div>
 	</div>
 </div>
 
 <div id="info">
-	<div id="code">
-		<b>CODE</b>
-		0 S (or Z) as in Cypher (or Zero)
-		1 L looks like "l"
-		2 N as in "nee" (Japanese) or "ithnayn" (Arabic) 
-		3 M looks like sideways "m"
-		4 R as in fouR
-		5 V as in fiVe and the Roman numeral V
-		6 B (or D) looks like "b", "d"
-		7 T (or F) looks like "t", "f"
-		8 X "sh" and "ch" sounds
-		9 G looks like "g"
-	</div>
-	<br/><br/>
-	DISCLAIMER: I don't own the "Lemons Can Fly" gif
+	Check <a href="https://en.wikipedia.org/wiki/Mnemonic_Major">Mnemonic Major on Wikipedia</a>
+	
+	<b>Code:</b>
+	0 - S - (or Z) as in Cypher (or Zero)
+	1 - L - looks like "l"
+	2 - N - as in "nee" (Japanese) or "ithnayn" (Arabic) 
+	3 - M - looks like sideways "m"
+	4 - R - as in fouR
+	5 - V - as in fiVe and the Roman numeral V
+	6 - B - (or D) looks like "b", "d"
+	7 - T - (or F) looks like "t", "f"
+	8 - X - "sh" and "ch" sounds
+	9 - G - looks like "g"
+	(unused: P, K, J)
 </div>
+
+<footer>
+	COPYRIGHT!! Do What The Fuck You Want Public License :3
+</footer>
 
 <script src="./webapp/main.js"></script>
 

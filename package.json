@@ -1,11 +1,11 @@
 {
   "name": "nimiro",
   "version": "0.0.1",
-  "description": "A Phonetic Number System mnemonics generator",
+  "description": "A Phonetic Number System mnemonics generator [UNUSABLE]",
   "keywords": ["nlg", "nlp"],
-  "homepage": "https://github.com/djalilhebal/nimiro",
-  "author": "Abdeldjalil Hebal <abdeldjalil.hebal@gmail.com> (https://djalil.me)",
-  "license": "CC0",
   "main": "nimiro.js",
-  "bin": "./cli.js"
+  "bin": "./cli.js",
+  "author": "Djalil Dreamski <dreamski21@gmail.com>",
+  "homepage": "https://github.com/dreamski21/nimiro",  
+  "license": "WTFPL"
 }

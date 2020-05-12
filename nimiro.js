@@ -7,7 +7,7 @@ if (typeof nw === 'object') {
 		// NODE app
 		require('./cli');
 	} else {
-		// REQUIRE-d
+		// REQUIRE'd
 		module.exports = require('./src/index');
 	}
 }

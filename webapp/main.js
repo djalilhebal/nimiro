@@ -1,11 +1,11 @@
 if (typeof window.localStorage !== 'object') {
-  alert("localStorage isn't supported: the web app cannot cache data");
+  alert("localStorage isn't supported: we cannot cache data");
   window.localStorage = {};
 }
 
-if (!window.Worker) {
-  alert("WebWorkers aren't supported: while working the page may seem irresponsive");
-  //polyfill it
+if (typeof window.Worker !== 'function') {
+  alert("Web Workers aren't supported");
+  // polyfill it maybe (?)
 }
 
 const myWorker = new Worker('./webapp/worker.js');
@@ -27,38 +27,39 @@ ui.loading = function(b) {
 ui.output = function(result) {
   let out = '';
 
-	if (result.singletons.length > 0) {
-		out += '<div>' + result.singletons.map(x => x.str).join(' - ') + '</div>';
-      out += '<br/>';
-	}
+  if (result.singletons.length > 0) {
+    out += '<div>' + result.singletons.map(x => x.str).join(' - ') + '</div>';
+    out += '<br/>';
+  }
 
-	if (result.markov.length > 0) {
-	  out += result.markov.map(x => `<div>${x.str}</div>`).join('');
-      out += '<br/>';
-	}
+  if (result.markov.length > 0) {
+    out += result.markov.map(x => `<div>${x.str}</div>`).join('');
+    out += '<br/>';
+  }
 
-	if (result.cartesian.length > 0) {
-	  out += result.cartesian.map(x => `<div>${x.str}</div>`).join('');
-	  out += '<br/>';
-	}
+  if (result.cartesian.length > 0) {
+    out += result.cartesian.map(x => `<div>${x.str}</div>`).join('');
+    out += '<br/>';
+  }
 
-	if (!out) {
-	  out = 'WTF? No candidates were found!';
-	}
-	
-	$candidates.innerHTML = out;
+  if (!out) {
+    out = 'WTF? No candidates were found!';
+  }
+  
+  $candidates.innerHTML = out;
 }
 
 function gotMessage(msg) {
-	if (typeof msg.data !== 'string') return console.error(msg);
-	const parsed = JSON.parse(msg.data);
-	switch (parsed.type) {
-		case 'candidates':
-			console.log(parsed.candidates);
-			ui.output(parsed.candidates);
-			break;
-	}
-	ui.loading(false);
+  if (typeof msg.data !== 'string') return console.error(msg);
+  
+  const parsed = JSON.parse(msg.data);
+  switch (parsed.type) {
+    case 'candidates':
+      console.log(parsed.candidates);
+      ui.output(parsed.candidates);
+      break;
+  }
+  ui.loading(false);
 }
 
 function start() {
@@ -66,7 +67,7 @@ function start() {
    number: document.getElementById('number').value,
    topics: document.getElementById('topics').value,
    maxTime: document.getElementById('max-time').value,
-   maxCandidates: document.getElementById('max-candidates').value,	  
+   maxCandidates: document.getElementById('max-candidates').value,    
   };
   
   ui.loading(true);

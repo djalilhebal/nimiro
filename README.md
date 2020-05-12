@@ -1,64 +1,44 @@
 # Nimiro
-A Phonetic Number System mnemonics generator \[WIP\]
+A Phonetic Number System mnemonics generator (AKA Mnemonic Major system) [UNUSABLE]
+IN 2018-03, I SCREWED IT. GOTTA RESTART FROM SCRATCH...
 
-I have learned a few things since last time I tried to do this in February 2018 (and screwed it in March of the same year, see `nimiro-2018-03-screwed.zip`).
+It is comparable to a shitty speech recognition system that can only recognize "consonants", which gives rise to challenges like Word Segmentation and Vowels/Diacritics Restoration...
 
-Given a number, it (hopefully) outputs some meaningful and memorable words/phrases/sentences. \
-**Main goal**: Memorizing dates (8 digits) and phone numbers (10 digits).
+Given a number, it (hopefully) outputs some meaningful/memorable words/phrases/sentences:
+"102264126" > "LSNNDRLND" > "LS N NDRLND" > "alice in wonderland"
+(It works as a node lib, CLI tool, nwjs app, and web app)
 
-Like, "8020" -> "XSNS" -> *graph of words* -> "she is nice" \
-![](docs/graph-XSNS.png)
+The included json files were built from the (shittily parsed) Complete Works of Lewis Carroll.
 
-## Example
+## Why?
+Because the open-source projects I found are limited, they only generate word sets: Got2Know (Java), Adi Mukherjee's mnemonic-major (JavaScript), maleadt's majormem (Perl/C++)
 
-Suppose you want to memorize the date of Algerian's War for Independence: November 1, 1954.
+(The same goes with the 'closed-source' web and Android apps I came across)
 
-```js
-Nimiro.getCandidates({
-  number: "1954-11-01", // LGVR-LL-SL
-  domains: "history military politics", // Wordnet Domains
-  language: "en", // Other langs (like "fr") will be supported later
-  limit: 2,
-});
-
-expected =
-[
-  "well giver lowly soul",
-  "well give real lazily"
-]
-  // TODO sould return Array<{word, code, score}>
-  // Like, {word: "giver", "GVR", score: 3}>
-  // Imagine that score = 3 is for being in #politics, and encoding more than 2 numbers, being a common word.
-```
-
-## Notes
-
-- It works as a node library, CLI tool, and web app
-
-- The included `model.json` file was built from the (poorly parsed) Complete Works of Lewis Carroll.
-
----
-
-When encoding dates, it is recommended to use this pattern: YEAR-MONTH-DAY.
-Rationale:
-- Standard format (see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601))
-- Consistency. Sometimes the full date is required, sometimes MONTH-YEAR, other times only YEAR. This way you, if you know it's a date mnemonic, you can unambigiously know what number encodes what part of the date.
-- This pattern may be used in later version to output better mnemonics.
-
-### Why?
-Because the projects I found are limited, they only generate word sets: Got2Know (Java), Adi Mukherjee's mnemonic-major (JavaScript), maleadt's majormem (Perl/C++)
-
-### How
-It works as if it were a stupid speech recognition system that can recognize only "consonants". This gives rise to problems like Word Segmentation and Vowels/Diacritics Restoration...
+## "Features"
+- Word n-gram LM
+- N-best output
 
 ## TODO
 
-Check [TODO.md](docs/TODO.md)
+- Organize the codebase
 
-- Compile a list of important dates for the bac history exam.
-- Nimirofy them
-- Create a cheatsheet
-- Share it and spread the word!
+- Update the "template matcher" so that it accepts an array of possible tags and not just one tag
+
+- Calculate each collection's score ("poetics") so that we don't redo it each time,
+  then add that to the score of each combination...
+
+- Use an n-gram language model instead of "myMarkov" (a simplistic bigram model)
+
+- Try an approach like that of the HARPY speech recognition system (I mean an A*-like or BEAM-like search algorithm)
+
+- "Progressive enhancement" (for the web app):
+  * makeItup('GRX') = 'garashi', makeItup('SRR') = 'sarara'
+  * load the wordlist and generate a temporary pronunciation and POS dicts and use them to "randomly" generate candidates.
+  * load the n-gram language model.
+  * load the actual pronunciation, Parts-of-Speech, and Domains dictionaries.
+
+- autocompleter for 'topics'
 
 ## License
-CC0
+WTFPL (._.)

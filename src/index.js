@@ -2,17 +2,9 @@ const collector = require('./collector');
 const generator = require('./generator');
 const scorer = require('./scorer');
 const myCode = require('./myCode'); // fromNumber
-const {wordify, log} = require('./helper');
+const {data, updateData} = require('./dataManager');
 
-const data = {
-	wordlist: require('../data/wordlist.json'),
-	pronun: require('../data/pronun.json'),
-	modelA: require('../data/model.json'),
-	//tags: require('../data/tags.json'),
-};
-
-wordify(data.pronun, data.wordlist);
-wordify(data.modelA, data.wordlist);
+const log = console.log;
 
 function get(query) {
   const methods = {
@@ -27,6 +19,7 @@ function get(query) {
   };
   
   function chooser() {
+	  // just return everything for now
 	  return {
 		  singletons: candidates.singletons.filter(x => x.score !== -1),
 		  cartesian: candidates.cartesian.filter(x => x.score !== -1),
@@ -39,8 +32,8 @@ function get(query) {
     const isBetter = x.score > target[target.length - 1].score;
 	if (!isBetter) return;
 
-    const alreadyExist = target.some(y => y.str === x.str);
-	if (alreadyExist) return;
+    const alreadyExists = target.some(y => y.str === x.str);
+	if (alreadyExists) return;
 	
     target.pop();
     target.push(x);
@@ -84,8 +77,10 @@ function get(query) {
 
 	resetCandidates(maxCandidates);
 	
-    log('generating candidates...');
+    log('getting collections...');
     const collections = collector(data.pronun, encodedNumber);
+	
+    log('generating candidates...');
     collections.forEach((collection) => {
       if (collection.sets.length === 1) {
         collection.sets[0].forEach(word => handleSingleton(word));
@@ -109,4 +104,4 @@ function get(query) {
   return getCandidates(query);
 }
 
-module.exports = {get};
+module.exports = {get, updateData};

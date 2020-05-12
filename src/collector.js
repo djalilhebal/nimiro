@@ -1,10 +1,19 @@
 const partitions = require('./combinatorics').partitions;
+/*
+function getMax(){
+	let max = 0;
+	entries.forEach(entry => {
+		if (entry.length > max) max = entry.length;
+	});
+	return max;
+}
 
+partitions(seq, {min, max, filter, callback})
+*/
 function collector(pronun, seq) {
 	function getGoodParts(str) {
 		const result = [];
 		partitions(str, (ps) => {
-			ps = ps.join('').split('-');
 			if (ps.some(p => typeof pronun[p] === 'undefined')) return;
 			result.push(ps);
 		});

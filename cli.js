@@ -1,14 +1,24 @@
 #!/usr/bin/env node
 
-// NODE app
 if (process.argv.length !== 3 || !/^[0-9]+$/.test(process.argv[2])) {
   console.log('Usage: node nimiro [number]');
 } else {
   const nimiro = require('./src/index');
+  
+  const dataBundle = {
+	wordlist: require('./data/wordlist.json'),
+	taglist: require('./data/taglist.json'),
+	domains: require('./data/domains.json'),
+	pronun: require('./data/pronun.json'),
+	modelA: require('./data/modelA.json'),
+  };
+  
+  nimiro.updateData(JSON.stringify(dataBundle));
+  
   const query = {
 	number: process.argv[2], // IMPORTANT
-	maxCandidates: 10, // "Quantity, not Quality" :p
-	maxTime: 1, // in secs
+	maxCandidates: 15, // "Quantity, not Quality" :p
+	maxTime: 3, // in secs
   };
 
   const result = nimiro.get(query);

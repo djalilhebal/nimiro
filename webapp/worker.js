@@ -1,8 +1,8 @@
 // MY WORKER
 try {
-	importScripts('module.bundle.js');
+	self.importScripts('module.bundle.js');
 } catch(e) {
-	postMessage('{"type":"module-error"}');
+	self.postMessage('{"type":"error", "text":"importing the module failed"}');
 }
 
 self.onmessage = function (msg) {
@@ -30,7 +30,7 @@ self.onmessage = function (msg) {
 		break;
 	}
 
-	postMessage(JSON.stringify(result));
+	self.postMessage(JSON.stringify(result));
 }
 
-postMessage('{"type":"loaded-module"}');
+self.postMessage('{"type":"loaded-module"}');

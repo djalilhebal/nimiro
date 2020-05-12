@@ -23,11 +23,10 @@ function fromNumber(input) {
 function toRegex() {
 	/**
 	 * @example
-	 * const code = 'SLNMRVBTXG'.split('').map(x => x.split(''));
-	 * toRegex(c) // /^[SLNMRVBTXG]+$/
+	 * toRegex() // /^[SLNMRVBTXG]+$/
 	 */
-	if (typeof code !== 'object') throw 'code is not an object';
-	let str = '';
+
+    let str = '';
 	for (let i = 0; i < 10; i++) {
 		str += code[i].join('');
 	}
